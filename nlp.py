@@ -10,10 +10,15 @@ def buildVocab(fName):
    return vocab, invVocab
 
 #Generic txt-vocab
-def applyVocab(line, vocab):
+def applyVocab(line, vocab, mode):
    ret = []
-   for e in line:
-      ret += [vocab[e]]
+   if mode != 'english_words':
+      for e in line:
+         ret += [vocab[e]]
+   else:
+      for w in line.split(' '):
+        if (w in vocab.keys()):
+           ret+=[vocab[w]]
    return np.asarray(ret)
 
 def applyInvVocab(x, vocab):

@@ -2,6 +2,7 @@ import math
 import torch
 from torch.nn.parameter import Parameter
 from torch.nn import Module
+import torch.nn.functional as ff
 from pdb import set_trace as T
 
 class HyperLinear(Module):
@@ -19,10 +20,12 @@ class HyperLinear(Module):
         if self.bias is not None:
             self.bias.data.uniform_(-stdv, stdv)
 
-    def forward(self, input, z):
+    def forward(self, inp, z):
         weight = self.weight
         z = torch.cat((z,z), 1)
-        Wx = self._backend.Linear()(input, weight)*z
+        #print([f for f in self._backend.function_classes.keys() if f[0]=='L'])
+        #Wx = self._backend.Linear()(inp, weight)*z
+        Wx = ff.linear(inp, weight)*z
         Wx += self.bias.expand_as(Wx) 
         return Wx
 

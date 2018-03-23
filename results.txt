@@ -1,0 +1,20 @@
+Results for PTB characters dataset:
+Network has  15262 K params
+Time:  300.0937957763672
+Valid  Perp:  49.80595819754213 , Acc:  0.0
+Time:  345.7643449306488
+Test  Perp:  49.787926453937224 , Acc:  2.272727272727273e-05
+
+Results for French characters:
+Network has  15282 K params
+Time:  439.7126889228821
+Valid  Perp:  69.055235574108 , Acc:  0.0
+Time:  434.02187609672546
+Test  Perp:  69.05362089641413 , Acc:  0.0
+
+Results for Reuters Words dataset:
+Network has  26526 K params
+Time:  20.233247995376587
+Valid  Perp:  11000.01748770981 , Acc:  0.0
+Time:  31.053907871246338
+Test  Perp:  10976.884213351452 , Acc:  0.0
